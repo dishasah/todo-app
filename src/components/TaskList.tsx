@@ -1,29 +1,21 @@
-import React, { useState } from 'react';
-
-interface Task {
-  id: number;
-  text: string;
-  completed: boolean;
-}
-
-interface TaskListProps {
-  tasks: Task[];
-  onComplete: (id: number) => void;
-}
-
-const TaskList: React.FC<TaskListProps> = ({ tasks, onComplete }) => {
+import React from 'react'
+import './TaskList.scss'
+const TaskList:React.FC = () => {
   return (
-    <div>
-      <h2>Task List</h2>
-      <ul>
-        {tasks.filter(task => !task.completed).map(task => (
-          <li key={task.id}>
-            {task.text} <button onClick={() => onComplete(task.id)}>Complete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    <>
+      <div className="task_list_section">
+      <div className='task_list_item'>
+      <input type='checkbox' title='check' className=" task_checkbox"/>
+      <input type='text' title='task' className='task_input'/>
+      <button type='button' title='submit'>Remove Task</button>
+      
 
-export default TaskList;
+
+      </div>
+      </div>
+</>
+
+  )
+}
+
+export default TaskList

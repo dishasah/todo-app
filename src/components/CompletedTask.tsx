@@ -1,9 +1,26 @@
-import React from 'react'
+import React from 'react';
 
-const CompletedTask = () => {
-  return (
-    <div>CompletedTask</div>
-  )
+interface Task {
+  id: number;
+  text: string;
+  completed: boolean;
 }
 
-export default CompletedTask
+interface CompletedTaskProps {
+  tasks: Task[];
+}
+
+const CompletedTask: React.FC<CompletedTaskProps> = ({ tasks }) => {
+  return (
+    <div>
+      <h2>Completed Tasks</h2>
+      <ul>
+        {tasks.filter(task => task.completed).map(task => (
+          <li key={task.id}>{task.text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default CompletedTask;
